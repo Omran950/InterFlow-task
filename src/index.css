@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "cairo";
+  src: url("assets/Fonts/Cairo/Cairo-Regular.woff2") format("woff2"),
+    url("assets/Fonts/Cairo/Cairo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.scrollbar-left {
+  direction: rtl;
+  scrollbar-width: thin;
+  scrollbar-color: #76e8cd #09414b;
+}
+
+.scrollbar-left::-webkit-scrollbar {
+  width: 2px;
+}
+.scrollbar-left::-webkit-scrollbar-button {
+  display: none;
+}
+.scrollbar-left::-webkit-scrollbar-thumb {
+  background-color: #76e8cd;
+  border-radius: 2px;
+}
+
+.scrollbar-left::-webkit-scrollbar-track {
+  background-color: #76e8cd;
+}
+
+body {
+  font-family: "cairo";
+  text-align: right;
+  scroll-behavior: smooth;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.li-flex {
+  @apply flex items-center justify-start gap-x-3  cursor-pointer hover:bg-mainHover  px-4 py-3;
+}
+.li-flex-left {
+  @apply flex items-center justify-end gap-x-3  cursor-pointer hover:bg-gray-200  px-2 py-3;
+}
