@@ -6,7 +6,6 @@ import * as Yup from "yup";
 export default function AddBranch({ addBranch }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Validation schema using Yup
   const validationSchema = Yup.object().shape({
     _name: Yup.string()
       .required("يرجى إدخال اسم الفرع")
@@ -19,23 +18,20 @@ export default function AddBranch({ addBranch }) {
       .min(5, "العنوان يجب أن يكون على الأقل 5 أحرف"),
   });
 
-  // Initial values for the form
   const initialValues = {
     _name: "",
     phone: "",
     address: "",
   };
 
-  // Form submission handler
   const handleSubmit = (values, { resetForm }) => {
-    addBranch(values); // Pass data to parent component
-    resetForm(); // Reset the form after submission
-    setIsModalOpen(false); // Close the modal
+    addBranch(values);
+    resetForm();
+    setIsModalOpen(false);
   };
 
   return (
     <div>
-      {/* Add Branch Button */}
       <button
         onClick={() => setIsModalOpen(true)}
         className="bg-secondary text-textColor rounded-full px-4 py-2 flex items-center ms-auto my-6"
@@ -44,11 +40,12 @@ export default function AddBranch({ addBranch }) {
         <IconPlus />
       </button>
 
-      {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          dir="rtl"
+        >
           <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
-            {/* Modal Header */}
             <div className="flex justify-between items-center border-b pb-3 mb-4">
               <h2 className="text-xl font-semibold text-gray-800">
                 إضافة فرع / مستودع
@@ -61,7 +58,6 @@ export default function AddBranch({ addBranch }) {
               </button>
             </div>
 
-            {/* Formik Form */}
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -69,7 +65,6 @@ export default function AddBranch({ addBranch }) {
             >
               {({ isSubmitting }) => (
                 <Form>
-                  {/* Branch Name */}
                   <div className="mb-4">
                     <label
                       htmlFor="_name"
@@ -91,7 +86,6 @@ export default function AddBranch({ addBranch }) {
                     />
                   </div>
 
-                  {/* Phone Number */}
                   <div className="mb-4">
                     <label
                       htmlFor="phone"
@@ -113,7 +107,6 @@ export default function AddBranch({ addBranch }) {
                     />
                   </div>
 
-                  {/* Address */}
                   <div className="mb-4">
                     <label
                       htmlFor="address"
@@ -135,7 +128,6 @@ export default function AddBranch({ addBranch }) {
                     />
                   </div>
 
-                  {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}

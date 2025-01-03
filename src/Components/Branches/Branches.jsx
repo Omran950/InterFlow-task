@@ -20,11 +20,17 @@ export default function Branches() {
     { _name: "الوءتي", phone: "01025896554", address: "cairo" },
   ]);
 
-  const deleteBranch = (idx) => {
+  function deleteBranch(idx) {
     const updatedBranches = branches.filter((_, index) => index !== idx);
     setBranches(updatedBranches);
     localStorage.setItem("branches", JSON.stringify(updatedBranches));
-  };
+  }
+
+  function addBranch(newBranch) {
+    const updatedBranches = [...branches, newBranch];
+    setBranches(updatedBranches);
+    localStorage.setItem("branches", JSON.stringify(updatedBranches));
+  }
 
   useEffect(() => {
     if (localStorage.getItem("branches")) {
@@ -37,7 +43,7 @@ export default function Branches() {
       <Header />
       <div className="px-8">
         <Tabs />
-        <AddBranch />
+        <AddBranch addBranch={addBranch} />
         <AllBranches branches={branches} deleteBranch={deleteBranch} />
       </div>
     </>
