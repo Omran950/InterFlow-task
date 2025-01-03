@@ -6,18 +6,9 @@ import Tabs from "./Tabs";
 
 export default function Branches() {
   const [branches, setBranches] = useState([
-    { _name: "الاء", phone: "01025896554", address: "cairo" },
-    { _name: "نجمتي", phone: "01025896554", address: "alex" },
-    { _name: "ست البنات", phone: "01025896554", address: "mansoura" },
-    { _name: "فجلتي", phone: "01025896554", address: "mahala" },
-    { _name: "حياتي", phone: "01025896554", address: "aswan" },
-    { _name: "قلبي", phone: "01025896554", address: "cairo" },
-    { _name: "ام لارا", phone: "01025896554", address: "cairo" },
-    { _name: "لوكا", phone: "01025896554", address: "cairo" },
-    { _name: "حبيبتي", phone: "01025896554", address: "cairo" },
-    { _name: "لولي", phone: "01025896554", address: "damietta" },
-    { _name: "الوءتي", phone: "01025896554", address: "cairo" },
-    { _name: "الوءتي", phone: "01025896554", address: "cairo" },
+    { _name: "الرئيسي", phone: "01025896554", address: "cairo" },
+    { _name: "الفرعي", phone: "01025896554", address: "alex" },
+
   ]);
 
   function deleteBranch(idx) {
